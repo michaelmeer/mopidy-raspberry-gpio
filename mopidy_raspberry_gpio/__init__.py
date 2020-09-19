@@ -24,6 +24,7 @@ class Extension(ext.Extension):
         schema = super().get_config_schema()
         for pin in range(28):
             schema[f"bcm{pin:d}"] = PinConfig()
+        schema["playlists"] = config.List()
         return schema
 
     def setup(self, registry):
